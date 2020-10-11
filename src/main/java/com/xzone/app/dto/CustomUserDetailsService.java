@@ -24,6 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return UserPrinciple.create(user);
     }
 
+    // use by JWTAuthenticationFilter
     @Transactional
     public UserDetails loadUserById(long id){
         User user = userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User Not Found With ID: "+id));
